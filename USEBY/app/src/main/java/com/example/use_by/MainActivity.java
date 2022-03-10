@@ -2,7 +2,9 @@ package com.example.use_by;
 
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.Intent;
 import android.os.Bundle;
+import android.view.View;
 import android.view.Menu;
 import android.view.MenuInflater;
 
@@ -19,5 +21,10 @@ public class MainActivity extends AppCompatActivity {
         MenuInflater inflater = getMenuInflater();
         inflater.inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
+    }
+
+    public void openList(View view) {
+        Intent intent = new Intent(this, OpenListActivity.class);
+        startActivity(intent);
     }
 }
