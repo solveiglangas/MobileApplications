@@ -4,22 +4,13 @@
     <option name="filePathToZoomLevelMap">
       <map>
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1665" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/layout/activity_open_list.xml" value="0.221490987141927" />
+        <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_main.xml" value="0.2487457275390626" />
+        <entry key="app/src/main/res/layout/activity_open_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/list.xml" value="0.23143115942028986" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1645" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/useby_logo.xml" value="0.1665" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/useby_logo_round.xml" value="0.1665" />
-        <entry key="app/src/main/res/drawable-24/ic_launcher_foreground.xml" value="0.197" />
-        <entry key="app/src/main/res/drawable-v24/ic_launcher_foreground.xml" value="0.215" />
-        <entry key="app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.197" />
-        <entry key="app/src/main/res/drawable/ic_baseline_notifications_active_24.xml" value="0.197" />
-        <entry key="app/src/main/res/layout/activity_item_details.xml" value="0.2757522583007812" />
-        <entry key="app/src/main/res/layout/activity_main.xml" value="0.1" />
-        <entry key="app/src/main/res/menu/menu.xml" value="0.32222222222222224" />
-        <entry key="app/src/main/res/menu/menu_main.xml" value="0.3880416870117188" />
-        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.197" />
-        <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher_round.xml" value="0.197" />
       </map>
     </option>
   </component>
