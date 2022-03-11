@@ -13,6 +13,9 @@
             android:name=".OpenListActivity"
             android:exported="false" />
         <activity
+            android:name=".ItemDetails"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true">
             <intent-filter>
