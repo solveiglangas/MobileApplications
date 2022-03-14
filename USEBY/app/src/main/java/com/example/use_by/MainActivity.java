@@ -30,8 +30,8 @@ public class MainActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "my-foods").allowMainThreadQueries().build();
-
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "my-foods").allowMainThreadQueries().createFromAsset("database/foodDB.db").build();
+        fillData();
     }
 
     @Override
@@ -42,10 +42,8 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openList(View view) {
-        fillData();
         Intent intent = new Intent(this, OpenListActivity.class);
         startActivity(intent);
-
 
     }
 
@@ -56,6 +54,6 @@ public class MainActivity extends AppCompatActivity {
         for (Food f:foods){
             names.add(f.getName());
         }
-        System.out.println(names);
+        System.out.println(foods);
     }
 }
