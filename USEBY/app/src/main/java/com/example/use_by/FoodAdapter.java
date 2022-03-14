@@ -1,6 +1,7 @@
 package com.example.use_by;
 
 import android.content.Context;
+import android.database.Cursor;
 import android.database.SQLException;
 import android.database.sqlite.SQLiteDatabase;
 import android.database.sqlite.SQLiteOpenHelper;
@@ -40,6 +41,7 @@ public class FoodAdapter {
     public FoodAdapter(Context context){
         this.context = context;
     }
+
     public FoodAdapter open() throws SQLException{
         helper = new DatabaseHelper(context);
         db = helper.getWritableDatabase();
@@ -47,5 +49,8 @@ public class FoodAdapter {
     }
     public void close(){
         helper.close();
+    }
+    public Cursor fetchAllFood(){
+        return db.query(DATABASE_TABLE, new String[]{KEY_ID, NAME, DATE, QUANTITY, LOCATION}, null, null, null, null, null);
     }
 }
