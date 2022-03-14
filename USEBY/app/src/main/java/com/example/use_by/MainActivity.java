@@ -1,6 +1,7 @@
 package com.example.use_by;
 
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.room.Room;
 
 import android.content.Intent;
 import android.content.SharedPreferences;
@@ -10,21 +11,27 @@ import android.util.Log;
 import android.view.View;
 import android.view.Menu;
 import android.view.MenuInflater;
+import android.widget.ArrayAdapter;
 
 import java.io.FileOutputStream;
 import java.io.InputStream;
 import java.io.OutputStream;
+import java.util.ArrayList;
+import java.util.List;
+
+import domains.Food;
 
 public class MainActivity extends AppCompatActivity {
 
-    private static final String PRELOADED_DATABASE_NAME = "foodDB.db";
+    private AppDatabase db;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_main);
 
-        loadDataBase();
+        db = Room.databaseBuilder(getApplicationContext(), AppDatabase.class, "my-foods").allowMainThreadQueries().build();
+
     }
 
     @Override
@@ -35,35 +42,20 @@ public class MainActivity extends AppCompatActivity {
     }
 
     public void openList(View view) {
+        fillData();
         Intent intent = new Intent(this, OpenListActivity.class);
         startActivity(intent);
+
+
     }
-    private void loadDataBase(){
-        SharedPreferences prefs = PreferenceManager.getDefaultSharedPreferences(getApplicationContext());
-        Boolean firstTime = prefs.getBoolean("firstTime", true);
-        if (firstTime) {
-            try {
-                String destPath = "/data/data/" + getPackageName() +
-                        "/databases/" + FoodAdapter.DATABASE_NAME;
-                InputStream in = getAssets().open(PRELOADED_DATABASE_NAME);
-                OutputStream out = new FileOutputStream(destPath);
-                byte[] buffer = new byte[1024];
-                int length;
-                while ((length = in.read(buffer)) > 0) {
-                    out.write(buffer, 0, length);
-                }
-                in.close();
-                out.flush();
-                out.close();
-                SharedPreferences.Editor editor = prefs.edit();
-                editor.putBoolean("firstTime", false);
-                editor.commit();
-            } catch (Exception e) {
-                Log.e(this.getLocalClassName(), "Exception loading database",
-                        e);
-            }
+
+    private void fillData(){
+        List<Food> foods = db.foodDao().getAllFoods();
+        List<String> names = new ArrayList<>();
+
+        for (Food f:foods){
+            names.add(f.getName());
         }
+        System.out.println(names);
     }
-
-
 }
