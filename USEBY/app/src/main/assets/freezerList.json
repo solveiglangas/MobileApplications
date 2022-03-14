@@ -1,0 +1,38 @@
+[
+  {
+    "id":"1",
+    "name":"apples",
+    "date":"2022-03-21",
+    "quantity":"3"
+  },
+  {
+    "id":"2",
+    "name":"chicken",
+    "date":"2022-03-17",
+    "quantity":"500"
+  },
+  {
+    "id":"3",
+    "name":"Mozzarella",
+    "date":"2022-03-22",
+    "quantity":"4"
+  },
+  {
+    "id":"4",
+    "name":"orange juice",
+    "date":"2022-03-25",
+    "quantity":"2"
+  },
+  {
+    "id":"5",
+    "name":"milk",
+    "date":"2022-03-18",
+    "quantity":"1"
+  },
+  {
+    "id":"6",
+    "name":"eggs",
+    "date":"2022-03-30",
+    "quantity":"12"
+  }
+]
