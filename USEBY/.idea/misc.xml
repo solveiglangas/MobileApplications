@@ -5,6 +5,8 @@
       <map>
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1665" />
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_edit.xml" value="0.1" />
+        <entry key="app/src/main/res/layout/activity_item_details.xml" value="0.25677083333333334" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2487457275390626" />
         <entry key="app/src/main/res/layout/activity_open_list.xml" value="0.18405761718750002" />
         <entry key="app/src/main/res/layout/food_row.xml" value="0.15760869565217392" />

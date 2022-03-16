@@ -1,5 +1,6 @@
-package domains;
+package com.example.use_by;
 
+import androidx.annotation.NonNull;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -14,16 +15,16 @@ public class Food {
     public long id;
 
     @ColumnInfo(name="name")
-    String name;
-
-    @ColumnInfo(name="quantity")
-    int quantity;
+    public String name;
 
     @ColumnInfo(name="date")
-    String date;
+    public String date;
+
+    @ColumnInfo(name="quantity")
+    public int quantity;
 
     @ColumnInfo(name="location")
-    String location;
+    public String location;
 
     public Food(long id, String name, int quantity, String date, String location) {
         this.id = id;
@@ -64,8 +65,5 @@ public class Food {
     public void setDate(String date) {
         this.date = date;
     }
-
-
-
 
 }
