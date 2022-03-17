@@ -11,9 +11,6 @@ import android.widget.ListView;
 
 public class MainActivity extends AppCompatActivity {
 
-    private AppDatabase db;
-    private ListView listView;
-
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {

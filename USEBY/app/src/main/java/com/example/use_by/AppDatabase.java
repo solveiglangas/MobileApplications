@@ -22,6 +22,9 @@ public abstract class AppDatabase extends RoomDatabase {
         return instance;
     }
     public static AppDatabase create(Context context){
-        return Room.databaseBuilder(context, AppDatabase.class, DB_NAME).createFromAsset("databases/foodDB.db").allowMainThreadQueries().build();
+        return Room.databaseBuilder(context, AppDatabase.class, DB_NAME)
+                .createFromAsset(PRELOADED_DATABASE_FILE)
+                .allowMainThreadQueries()
+                .build();
     }
 }

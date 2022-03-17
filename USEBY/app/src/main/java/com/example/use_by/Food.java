@@ -1,6 +1,7 @@
 package com.example.use_by;
 
 import androidx.annotation.NonNull;
+import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
@@ -21,7 +22,7 @@ public class Food {
     public String date;
 
     @ColumnInfo(name="quantity")
-    public int quantity;
+    public Integer quantity;
 
     @ColumnInfo(name="location")
     public String location;
