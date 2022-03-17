@@ -3,7 +3,7 @@ package com.example.use_by;
 import androidx.appcompat.app.AppCompatActivity;
 import android.os.Bundle;
 
-public class AddItem extends AppCompatActivity {
+public class AddItemActivity extends AppCompatActivity {
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
