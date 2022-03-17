@@ -22,7 +22,7 @@ public class Food {
     public String date;
 
     @ColumnInfo(name="quantity")
-    public Integer quantity;
+    public int quantity;
 
     @ColumnInfo(name="location")
     public String location;
