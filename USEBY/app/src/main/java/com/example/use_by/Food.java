@@ -27,6 +27,10 @@ public class Food {
     @ColumnInfo(name="location")
     public String location;
 
+    public Food(){
+
+    }
+
     public Food(long id, String name, int quantity, String date, String location) {
         this.id = id;
         this.name = name;
