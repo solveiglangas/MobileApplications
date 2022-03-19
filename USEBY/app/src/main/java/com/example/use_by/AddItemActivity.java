@@ -17,12 +17,19 @@ public class AddItemActivity extends AppCompatActivity {
     EditText input1;
     EditText input2;
     EditText input3;
+    String listLocation;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_add_item);
         db = AppDatabase.getInstance(getApplicationContext());
+
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null)
+        {
+            listLocation = extras.getString("list");
+        }
     }
 
     public void cancel(View view) {
@@ -30,23 +37,20 @@ public class AddItemActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-
-
     public void addFood(View view) {
-
         input1 = findViewById(R.id.input1);
         input2 = findViewById(R.id.input2);
         input3 = findViewById(R.id.input3);
+
         Food newFood = new Food();
         newFood.setName(input1.getText().toString());
         newFood.setDate(input2.getText().toString());
         newFood.setQuantity(Integer.parseInt(input3.getText().toString()));
+        newFood.setLocation(listLocation);
         db.foodDao().insert(newFood);
 
-
         Intent intent = new Intent(this, OpenListActivity.class);
+        intent.putExtra("list",listLocation);
         startActivity(intent);
-
-
     }
 }

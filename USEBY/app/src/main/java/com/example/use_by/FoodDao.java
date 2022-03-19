@@ -12,6 +12,9 @@ public interface FoodDao {
     @Query("SELECT * FROM Food")
     List<Food> getAllFoods();
 
+    @Query("SELECT * FROM Food WHERE location LIKE :location")
+    List<Food>  findByLocation(String location);
+
     @Insert
     void insert(Food food);
 
