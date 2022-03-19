@@ -76,7 +76,7 @@ public class Food {
     }
 
     public void setLocation(String location) {
-        this.location = date;
+        this.location = location;
     }
 
 }

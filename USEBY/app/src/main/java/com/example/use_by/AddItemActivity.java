@@ -26,14 +26,17 @@ public class AddItemActivity extends AppCompatActivity {
         db = AppDatabase.getInstance(getApplicationContext());
 
         Bundle extras = getIntent().getExtras();
+        System.out.println(extras);
         if(extras!=null)
         {
             listLocation = extras.getString("list");
+            System.out.println(listLocation+"1");
         }
     }
 
     public void cancel(View view) {
         Intent intent = new Intent(this, OpenListActivity.class);
+        intent.putExtra("list",listLocation);
         startActivity(intent);
     }
 
@@ -47,6 +50,11 @@ public class AddItemActivity extends AppCompatActivity {
         newFood.setDate(input2.getText().toString());
         newFood.setQuantity(Integer.parseInt(input3.getText().toString()));
         newFood.setLocation(listLocation);
+        System.out.println(newFood.getLocation()+ " location");
+        System.out.println(newFood.getName() + " name");
+        System.out.println(newFood.getDate()+ " date");
+        System.out.println(newFood.getQuantity()+" quantity");
+        System.out.println(newFood.getId()+" id");
         db.foodDao().insert(newFood);
 
         Intent intent = new Intent(this, OpenListActivity.class);

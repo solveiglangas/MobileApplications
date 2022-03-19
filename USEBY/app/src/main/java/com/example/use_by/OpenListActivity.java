@@ -41,6 +41,7 @@ public class OpenListActivity extends AppCompatActivity {
         if(extras!=null)
         {
             listLocation = extras.getString("list");
+            System.out.println(listLocation);
         }
 
         db = AppDatabase.getInstance(getApplicationContext());
@@ -71,8 +72,8 @@ public class OpenListActivity extends AppCompatActivity {
 
     public void addItem(View view) {
         Intent intent = new Intent(this, AddItemActivity.class);
-        startActivity(intent);
         intent.putExtra("list",listLocation);
+        startActivity(intent);
     }
 
 
