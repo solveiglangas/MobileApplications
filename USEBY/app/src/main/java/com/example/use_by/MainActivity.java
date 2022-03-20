@@ -35,19 +35,31 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         switch (v.getId()){
             case R.id.button_refrigerator: {
                 Intent i = new Intent(this, OpenListActivity.class);
+
                 i.putExtra("list","refrigerator");
+
+                i.putExtra("key",1);
+
                 startActivity(i);
                 break;
             }
             case R.id.button_pantry: {
                 Intent i = new Intent(this, OpenListActivity.class);
+
                 i.putExtra("list", "pantry");
+
+                i.putExtra("key", 2);
+
                 startActivity(i);
                 break;
             }
             case R.id.button_freezer: {
                 Intent i = new Intent(this, OpenListActivity.class);
+
                 i.putExtra("list", "freezer");
+
+                i.putExtra("key", 3);
+
                 startActivity(i);
                 break;
             }
