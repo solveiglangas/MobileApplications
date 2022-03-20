@@ -69,5 +69,12 @@ public class OpenListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    public void openItem(View view) {
+        Intent intent = new Intent(this, ItemDetailsActivity.class);
+        long lId = 1;
+        intent.putExtra("id", lId);
+        startActivity(intent);
+    }
+
 
 }
