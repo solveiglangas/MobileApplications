@@ -20,6 +20,7 @@ public class OpenListActivity extends AppCompatActivity {
 
     private AppDatabase db;
     private ListView listView;
+    String location;
 
     ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
         new ActivityResultContracts.StartActivityForResult(),
@@ -36,8 +37,23 @@ public class OpenListActivity extends AppCompatActivity {
         super.onCreate(savedInstanceState);
         setContentView(R.layout.activity_open_list);
 
-        db = AppDatabase.getInstance(getApplicationContext());
+        Bundle extras = getIntent().getExtras();
+        if(extras!=null)
+        {
+            int value = extras.getInt("key");
+            if(value == 1){
+                location = "refrigerator";
+            }
+            if(value == 2){
+                location = "pantry";
+            }
+            if(value == 3){
+                location = "freezer";
+            }
+        }
 
+
+        db = AppDatabase.getInstance(getApplicationContext());
         listView = findViewById(R.id.foodList);
 
         /*listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
@@ -48,12 +64,11 @@ public class OpenListActivity extends AppCompatActivity {
                 activityResultLauncher.launch(intent);
             }
         });*/
-
         fillData();
     }
 
     private void fillData(){
-        List<Food> foods = db.foodDao().getAllFoods();
+        List<Food> foods = db.foodDao().findByLocation(location);
 
         List<String> foodNames = new ArrayList<>();
         for (Food f:foods){
