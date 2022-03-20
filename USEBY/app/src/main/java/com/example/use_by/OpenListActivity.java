@@ -21,6 +21,9 @@ public class OpenListActivity extends AppCompatActivity {
     private AppDatabase db;
     private ListView listView;
     String location;
+    List<String> foodNames;
+    List<Long> foodIds;
+
 
     ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
         new ActivityResultContracts.StartActivityForResult(),
@@ -70,13 +73,25 @@ public class OpenListActivity extends AppCompatActivity {
     private void fillData(){
         List<Food> foods = db.foodDao().findByLocation(location);
 
-        List<String> foodNames = new ArrayList<>();
+        foodIds = new ArrayList<>();
+        foodNames = new ArrayList<>();
+
         for (Food f:foods){
+            foodIds.add(f.getId());
             foodNames.add(f.getName());
         }
+
         ArrayAdapter<String> listAdapter = new ArrayAdapter<>(listView.getContext(),
                 android.R.layout.simple_list_item_1, foodNames);
         listView.setAdapter(listAdapter);
+
+        // on click event on the items in ListView
+        listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
+            @Override
+            public void onItemClick(AdapterView<?> parent, View view, int position, long id){
+                openItem(view, position);
+            }
+        });
     }
 
     public void addItem(View view) {
@@ -84,10 +99,10 @@ public class OpenListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openItem(View view) {
+    public void openItem(View view, int position) {
         Intent intent = new Intent(this, ItemDetailsActivity.class);
-        long lId = 1;
-        intent.putExtra("id", lId);
+        long itemId = foodIds.get(position);
+        intent.putExtra("id", itemId);
         startActivity(intent);
     }
 
