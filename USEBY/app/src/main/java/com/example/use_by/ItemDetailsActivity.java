@@ -1,9 +1,13 @@
 package com.example.use_by;
 
+import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
+import android.content.DialogInterface;
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
+import android.widget.Toast;
 
 public class ItemDetailsActivity extends AppCompatActivity {
 
@@ -24,8 +28,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
     public void fillItemDetails() {
         db = AppDatabase.getInstance(getApplicationContext());
-        long itemId = getIntent().getLongExtra("id", -1);
-        Food item = db.foodDao().findById(itemId);
 
         if (itemId !=  -1) {
             TextView title = findViewById(R.id.item_details_item_name);
@@ -43,7 +45,32 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
     }
 
-    public void deleteItem(){
+    // TODO: Styling
+    // TODO: go back to list after delete
+    public void openDeleteAlertDialog(View view){
+        AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
+        alertDialogBuilder.setMessage("Are you sure that you want to delete this item?");
+        alertDialogBuilder.setPositiveButton("Delete",
+                new DialogInterface.OnClickListener() {
+                    @Override
+                    public void onClick(DialogInterface arg0, int arg1) {
+                        Toast.makeText(ItemDetailsActivity.this, "You clicked delete button", Toast.LENGTH_LONG).show();
+                        deleteItem();
+                    }
+                });
 
+        alertDialogBuilder.setNegativeButton("Cancel",
+                new DialogInterface.OnClickListener() {
+                @Override
+                public void onClick(DialogInterface arg0, int arg1) {
+                    Toast.makeText(ItemDetailsActivity.this, "You clicked cancel button", Toast.LENGTH_LONG).show();
+                }
+            });
+        AlertDialog alertDialog = alertDialogBuilder.create();
+        alertDialog.show();
+    }
+
+    public void deleteItem(){
+        db.foodDao().delete(item);
     }
 }
