@@ -48,12 +48,14 @@ public class ItemDetailsActivity extends AppCompatActivity {
     // TODO: Styling
     public void openDeleteAlertDialog(View view){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
-        alertDialogBuilder.setMessage("Are you sure that you want to delete this item?");
+        alertDialogBuilder.setTitle("Delete "+item.getName()+"?");
+        alertDialogBuilder.setMessage("Deleting this item will permanently remove it for your list.");
         alertDialogBuilder.setPositiveButton("Delete",
                 new DialogInterface.OnClickListener() {
                     @Override
                     public void onClick(DialogInterface arg0, int arg1) {
-                        Toast.makeText(ItemDetailsActivity.this, "You clicked delete button", Toast.LENGTH_LONG).show();
+                        String message = "Success! You have now deleted " + item.getName();
+                        Toast.makeText(ItemDetailsActivity.this, message, Toast.LENGTH_LONG).show();
                         deleteItem();
                     }
                 });
@@ -62,7 +64,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
                 new DialogInterface.OnClickListener() {
                 @Override
                 public void onClick(DialogInterface arg0, int arg1) {
-                    Toast.makeText(ItemDetailsActivity.this, "You clicked cancel button", Toast.LENGTH_LONG).show();
                 }
             });
         AlertDialog alertDialog = alertDialogBuilder.create();
