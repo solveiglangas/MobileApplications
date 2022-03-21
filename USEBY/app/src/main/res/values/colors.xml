@@ -18,7 +18,9 @@
     <color name="status_expired">#FF0000</color>
 
     <!-- BUTTON COLORS -->
-    <color name="cancel_red">#FF7070</color>
+    <color name="delete_red">#FF7070</color>
     <color name="secondary_button">#D3D3D3</color>
 
+    <!-- DIALOG ALERT FOR DELETE COLORS-->
+    <color name="secondary_text">#8E8E8E</color>
 </resources>
