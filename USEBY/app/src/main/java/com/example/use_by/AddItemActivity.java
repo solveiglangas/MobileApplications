@@ -44,6 +44,9 @@ public class AddItemActivity extends AppCompatActivity {
         }
     }
 
+    // TODO: go back to former activity and not make new intent (since the
+    //  back button will not bring you from list to front page, but from list
+    //  back to add.
     public void cancel(View view) {
         Intent intent = new Intent(this, OpenListActivity.class);
         intent.putExtra("list",listLocation);
