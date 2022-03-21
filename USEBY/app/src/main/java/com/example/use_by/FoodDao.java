@@ -18,6 +18,9 @@ public interface FoodDao {
     @Insert
     void insert(Food food);
 
+    @Query("SELECT * FROM Food WHERE id=:id")
+    Food findById(long id);
+
     /*@Query("SELECT * FROM Food WHERE id IN (:foodIds)")
     List<Food> loadAllByIds(long[] foodIds);
 =======

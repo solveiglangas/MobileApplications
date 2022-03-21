@@ -18,6 +18,7 @@ public class AddItemActivity extends AppCompatActivity {
     EditText input2;
     EditText input3;
     String listLocation;
+    int itemId;
 
     @Override
     protected void onCreate(Bundle savedInstanceState) {
@@ -30,6 +31,15 @@ public class AddItemActivity extends AppCompatActivity {
         if(extras!=null)
         {
             listLocation = extras.getString("list");
+            if(listLocation.equals("refrigerator")){
+                itemId = 1;
+            }
+            if(listLocation.equals("pantry")){
+                itemId = 2;
+            }
+            if(listLocation.equals("freezer")){
+                itemId = 3;
+            }
             System.out.println(listLocation+"1");
         }
     }
@@ -37,6 +47,7 @@ public class AddItemActivity extends AppCompatActivity {
     public void cancel(View view) {
         Intent intent = new Intent(this, OpenListActivity.class);
         intent.putExtra("list",listLocation);
+        intent.putExtra("key",itemId);
         startActivity(intent);
     }
 
@@ -59,6 +70,7 @@ public class AddItemActivity extends AppCompatActivity {
 
         Intent intent = new Intent(this, OpenListActivity.class);
         intent.putExtra("list",listLocation);
+        intent.putExtra("key",itemId);
         startActivity(intent);
     }
 }
