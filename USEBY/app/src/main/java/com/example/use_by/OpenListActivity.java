@@ -71,6 +71,12 @@ public class OpenListActivity extends AppCompatActivity {
         fillData();
     }
 
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        fillData();
+    }
+
     private void fillData(){
         List<Food> foods = db.foodDao().findByLocation(location);
 
@@ -78,6 +84,7 @@ public class OpenListActivity extends AppCompatActivity {
         foodNames = new ArrayList<>();
 
         for (Food f:foods){
+            System.out.println("HERE AGAIN");
             foodIds.add(f.getId());
             foodNames.add(f.getName());
         }

@@ -73,6 +73,5 @@ public class ItemDetailsActivity extends AppCompatActivity {
     public void deleteItem(){
         finish();
         db.foodDao().delete(item);
-        startActivity(getIntent());
     }
 }
