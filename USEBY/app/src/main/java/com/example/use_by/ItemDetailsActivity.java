@@ -46,7 +46,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
     }
 
     // TODO: Styling
-    // TODO: go back to list after delete
     public void openDeleteAlertDialog(View view){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setMessage("Are you sure that you want to delete this item?");
@@ -71,6 +70,8 @@ public class ItemDetailsActivity extends AppCompatActivity {
     }
 
     public void deleteItem(){
+        finish();
         db.foodDao().delete(item);
+        startActivity(getIntent());
     }
 }
