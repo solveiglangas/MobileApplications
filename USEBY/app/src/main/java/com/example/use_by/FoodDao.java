@@ -1,6 +1,7 @@
 package com.example.use_by;
 
 import androidx.room.Dao;
+import androidx.room.Insert;
 import androidx.room.Query;
 
 import java.util.List;
@@ -14,6 +15,16 @@ public interface FoodDao {
     @Query("SELECT * FROM Food WHERE location LIKE :location")
     List<Food>  findByLocation(String location);
 
+    @Insert
+    void insert(Food food);
+
+    @Query("SELECT * FROM Food WHERE id=:id")
+    Food findById(long id);
+
+    /*@Query("SELECT * FROM Food WHERE id IN (:foodIds)")
+    List<Food> loadAllByIds(long[] foodIds);
+=======
+>>>>>>> ff4aebabaa34efc85cb65a52a3de24f9018fe621
 
     @Query("SELECT * FROM Food WHERE id=:id")
     Food findById(long id);

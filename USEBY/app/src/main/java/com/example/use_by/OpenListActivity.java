@@ -26,13 +26,13 @@ public class OpenListActivity extends AppCompatActivity {
 
 
     ActivityResultLauncher<Intent> activityResultLauncher = registerForActivityResult(
-        new ActivityResultContracts.StartActivityForResult(),
-        new ActivityResultCallback<ActivityResult>() {
-            @Override
-            public void onActivityResult(ActivityResult result) {
-                fillData();
+            new ActivityResultContracts.StartActivityForResult(),
+            new ActivityResultCallback<ActivityResult>() {
+                @Override
+                public void onActivityResult(ActivityResult result) {
+                    fillData();
+                }
             }
-        }
     );
 
     @Override
@@ -44,6 +44,7 @@ public class OpenListActivity extends AppCompatActivity {
         if(extras!=null)
         {
             int value = extras.getInt("key");
+            System.out.println(value);
             if(value == 1){
                 location = "refrigerator";
             }
@@ -96,6 +97,7 @@ public class OpenListActivity extends AppCompatActivity {
 
     public void addItem(View view) {
         Intent intent = new Intent(this, AddItemActivity.class);
+        intent.putExtra("list", location);
         startActivity(intent);
     }
 
