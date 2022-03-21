@@ -3,6 +3,7 @@ package com.example.use_by;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.os.Bundle;
+import android.view.View;
 import android.widget.TextView;
 
 public class ItemDetailsActivity extends AppCompatActivity {
@@ -24,8 +25,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
     public void fillItemDetails() {
         db = AppDatabase.getInstance(getApplicationContext());
-        long itemId = getIntent().getLongExtra("id", -1);
-        Food item = db.foodDao().findById(itemId);
 
         if (itemId !=  -1) {
             TextView title = findViewById(R.id.item_details_item_name);
@@ -43,7 +42,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
 
     }
 
-    public void deleteItem(){
-
+    public void deleteItem(View view){
+        //db.foodDao().delete(item);
     }
 }
