@@ -6,4 +6,74 @@
     android:layout_height="match_parent"
     tools:context=".EditItemActivity">
 
+
+    <EditText
+        android:id="@+id/input_name"
+        android:inputType="text"
+
+        android:layout_width="313dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="92dp"
+        android:hint="@string/food_name"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent" />
+
+    <EditText
+        android:id="@+id/input_date"
+        android:layout_width="315dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="28dp"
+        android:ems="15"
+        android:focusable="false"
+        android:hint="@string/date_format"
+        android:inputType="date"
+        app:layout_constraintEnd_toEndOf="@+id/input_name"
+        app:layout_constraintHorizontal_bias="0.0"
+        app:layout_constraintStart_toStartOf="@+id/input_name"
+        app:layout_constraintTop_toBottomOf="@+id/input_name" />
+
+    <EditText
+        android:id="@+id/input_quantity"
+        android:inputType="number"
+
+        android:layout_width="315dp"
+        android:layout_height="56dp"
+        android:layout_marginTop="22dp"
+        android:hint="@string/quantity"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="@+id/input_date"
+        app:layout_constraintHorizontal_bias="1.0"
+        app:layout_constraintStart_toStartOf="@+id/input_date"
+        app:layout_constraintTop_toBottomOf="@+id/input_date"
+        app:layout_constraintVertical_bias="0.019" />
+
+    <Button
+        android:id="@+id/buttonCancel"
+        style="@style/SecondaryButton"
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        android:onClick="cancel"
+        android:text="@string/cancel"
+        app:layout_constraintBottom_toBottomOf="@+id/buttonEdit"
+        app:layout_constraintEnd_toStartOf="@+id/buttonEdit"
+        app:layout_constraintHorizontal_bias="0.263"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="@+id/buttonEdit"
+        app:layout_constraintVertical_bias="0.0" />
+
+    <Button
+        android:id="@+id/buttonEdit"
+        android:onClick="edit"
+        android:text="@string/edit"
+
+        android:layout_width="wrap_content"
+        android:layout_height="wrap_content"
+        app:layout_constraintBottom_toBottomOf="parent"
+        app:layout_constraintEnd_toEndOf="parent"
+        app:layout_constraintHorizontal_bias="0.851"
+        app:layout_constraintStart_toStartOf="parent"
+        app:layout_constraintTop_toTopOf="parent"
+        app:layout_constraintVertical_bias="0.571" />
+
 </androidx.constraintlayout.widget.ConstraintLayout>

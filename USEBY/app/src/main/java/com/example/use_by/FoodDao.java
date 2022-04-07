@@ -4,6 +4,7 @@ import androidx.room.Dao;
 import androidx.room.Insert;
 import androidx.room.Delete;
 import androidx.room.Query;
+import androidx.room.Update;
 
 import java.util.List;
 
@@ -25,6 +26,9 @@ public interface FoodDao {
     @Delete
     void delete(Food food);
 
+    @Update
+    void update(Food... food);
+
     /*
 
     @Query("SELECT * FROM Food WHERE id IN (:foodIds)")
@@ -38,9 +42,6 @@ public interface FoodDao {
 
     @Insert
     long[] insertAll(Food... food);
-
-    @Update
-    public void update(Food... food);
     */
 
 }
