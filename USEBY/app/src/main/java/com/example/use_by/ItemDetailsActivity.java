@@ -4,6 +4,7 @@ import androidx.appcompat.app.AlertDialog;
 import androidx.appcompat.app.AppCompatActivity;
 
 import android.content.DialogInterface;
+import android.content.Intent;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.TextView;
@@ -34,15 +35,23 @@ public class ItemDetailsActivity extends AppCompatActivity {
             TextView quantity = findViewById(R.id.item_details_quantity);
             TextView expirationDate = findViewById(R.id.item_details_expiration_date);
 
-
             title.setText(item.getName());
             quantity.setText("Quantity: " + String.valueOf(item.getQuantity()));
             expirationDate.setText("Expiration date: "  + item.getDate());
         }
     }
 
-    public void editItem() {
+    @Override
+    protected void onRestart() {
+        super.onRestart();
+        fillItemDetails();
+    }
 
+    public void editItem(View view) {
+        Intent intent = new Intent(this, EditItemActivity.class);
+        intent.putExtra("id", itemId);
+        System.out.println(itemId);
+        startActivity(intent);
     }
 
     // TODO: Styling
