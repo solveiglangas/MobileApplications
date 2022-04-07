@@ -9,4 +9,6 @@
     <string name="food_name">Food</string>
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
+    <string name="edit">Edit</string>
+    <string name="date_format">DD/MM/YYYY</string>
 </resources>
