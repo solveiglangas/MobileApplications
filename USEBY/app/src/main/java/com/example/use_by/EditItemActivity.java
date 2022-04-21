@@ -61,7 +61,8 @@ public class EditItemActivity extends AppCompatActivity implements View.OnClickL
             DatePickerDialog datePickerDialog = new DatePickerDialog(this, new DatePickerDialog.OnDateSetListener () {
                 @Override
                 public void onDateSet(DatePicker view, int year, int month, int dayOfMonth) {
-                    selectdate.setText(dayOfMonth + "/" + (month + 1) + "/" + year);
+                    String dateString = String.format("%02d/%02d/%04d", dayOfMonth, (month+1), year);
+                    selectdate.setText(dateString);
                 }
             }, mYear, mMonth, mDay);
             datePickerDialog.show();
@@ -79,7 +80,6 @@ public class EditItemActivity extends AppCompatActivity implements View.OnClickL
         // TODO: Change list?
 
         db.foodDao().update(item);
-
         finish();
     }
 
