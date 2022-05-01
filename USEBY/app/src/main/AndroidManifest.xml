@@ -17,6 +17,7 @@
             android:exported="false" />
         <activity
             android:name=".OpenListActivity"
+            android:parentActivityName=".MainActivity"
             android:exported="false" />
         <activity
             android:name=".ItemDetailsActivity"

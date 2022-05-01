@@ -62,6 +62,7 @@ public class AddItemActivity  extends AppCompatActivity implements View.OnClickL
         intent.putExtra("list",listLocation);
         intent.putExtra("key",itemId);
         startActivity(intent);
+        finish();
     }
 
     @Override
