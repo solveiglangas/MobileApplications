@@ -64,6 +64,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void setStatus(){
         TextView status = findViewById(R.id.item_details_status);
+
         int daysToExpiration = item.getDaysUntilExpired();
         int daysToEatNow = Integer.parseInt(getResources().getString(R.string.num_days_eat_now));
 
