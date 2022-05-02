@@ -5,6 +5,7 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
 import android.content.Intent;
 import android.os.Bundle;
@@ -69,6 +70,7 @@ public class OpenListActivity extends AppCompatActivity {
             }
         });*/
         fillData();
+        initializeSearch();
     }
 
     @Override
@@ -115,5 +117,28 @@ public class OpenListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void initializeSearch() {
+        SearchView searchView = (SearchView) findViewById(R.id.foodListSearchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList<String> searchedFoods = new ArrayList<>();
+                for (String food : foodNames) {
+                    if (food.toLowerCase().contains(s.toLowerCase())) {
+                        searchedFoods.add(food);
+                    }
+                }
+                System.out.println(searchedFoods);
+                ArrayAdapter<String> searchAdapter = new ArrayAdapter(getApplicationContext(), 0, searchedFoods);
+                listView.setAdapter(searchAdapter);
+                return false;
+
+            }
+        });
+    }
 
 }
