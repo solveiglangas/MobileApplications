@@ -12,9 +12,6 @@ import android.view.View;
 import android.widget.TextView;
 import android.widget.Toast;
 
-import java.time.LocalDate;
-import java.time.format.DateTimeFormatter;
-
 public class ItemDetailsActivity extends AppCompatActivity {
 
     private AppDatabase db;
@@ -35,8 +32,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
     }
 
     public void fillItemDetails() {
-        db = AppDatabase.getInstance(getApplicationContext());
-
         if (itemId !=  -1) {
             TextView title = findViewById(R.id.item_details_item_name);
             TextView quantity = findViewById(R.id.item_details_quantity);
@@ -48,10 +43,14 @@ public class ItemDetailsActivity extends AppCompatActivity {
         }
     }
 
+    @RequiresApi(api = Build.VERSION_CODES.O)
     @Override
     protected void onRestart() {
         super.onRestart();
+
+        item = db.foodDao().findById(itemId);
         fillItemDetails();
+        setStatus();
     }
 
     public void editItem(View view) {

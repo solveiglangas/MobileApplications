@@ -43,12 +43,11 @@ public class CustomListAdapter extends BaseAdapter {
         if (view == null) {
             view = LayoutInflater.from(context).inflate(R.layout.food_row, parent, false);
         }
-
+        
         Food currentItem = (Food) getItem(position);
 
         TextView itemName = (TextView) view.findViewById(R.id.list_item_name);
         TextView itemStatus = (TextView) view.findViewById(R.id.list_item_status);
-
 
         itemName.setText(currentItem.getName());
 
