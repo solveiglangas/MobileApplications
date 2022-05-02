@@ -32,7 +32,7 @@
         android:layout_height="wrap_content"
 
         android:layout_marginTop="8dp"
-        android:text="Expiration Date: yyyy-MM-dd"
+        android:text="Expiration Date: dd/MM/yyyy"
         app:layout_constraintEnd_toEndOf="@+id/item_details_quantity"
         app:layout_constraintHorizontal_bias="0.0"
         app:layout_constraintStart_toStartOf="@+id/item_details_quantity"
@@ -131,35 +131,6 @@
         app:layout_constraintHorizontal_bias="0.491"
         app:layout_constraintStart_toStartOf="@+id/textView4"
         app:layout_constraintTop_toBottomOf="@+id/textView4" />
-
-    <!--
-    <androidx.constraintlayout.widget.Guideline
-        android:id="@+id/guideline2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        android:orientation="vertical"
-        app:layout_constraintGuide_begin="-61dp" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="item_details_item_name"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-
-    <androidx.constraintlayout.widget.Group
-        android:id="@+id/group2"
-        android:layout_width="wrap_content"
-        android:layout_height="wrap_content"
-        app:constraint_referenced_ids="item_details_quantity,item_details_expiration_date,item_details_item_name"
-        app:layout_constraintBottom_toTopOf="parent"
-        app:layout_constraintEnd_toStartOf="parent"
-        app:layout_constraintStart_toStartOf="parent"
-        app:layout_constraintTop_toTopOf="parent" />
-    -->
 
 
 </androidx.constraintlayout.widget.ConstraintLayout>
