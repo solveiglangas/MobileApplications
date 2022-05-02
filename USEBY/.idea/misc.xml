@@ -3,23 +3,15 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/drawable/ic_notifications.xml" value="0.114" />
-        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/activity_item_details.xml" value="0.1796875" />
-        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
-        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/activity_open_list.xml" value="0.1671875" />
-        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/activity_view_notifications.xml" value="0.1796875" />
-        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/food_row.xml" value="0.1796875" />
-        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/notification_row.xml" value="0.1" />
-        <entry key="..\:/Users/borab/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.1796875" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1665" />
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.2891128540039063" />
         <entry key="app/src/main/res/layout/activity_edit.xml" value="0.1" />
         <entry key="app/src/main/res/layout/activity_edit_item.xml" value="0.2187347412109375" />
-        <entry key="app/src/main/res/layout/activity_item_details.xml" value="0.5488052368164062" />
+        <entry key="app/src/main/res/layout/activity_item_details.xml" value="0.25831298828125" />
         <entry key="app/src/main/res/layout/activity_main.xml" value="0.2487457275390626" />
-        <entry key="app/src/main/res/layout/activity_open_list.xml" value="0.18405761718750002" />
+        <entry key="app/src/main/res/layout/activity_open_list.xml" value="0.1" />
         <entry key="app/src/main/res/layout/edit_window.xml" value="0.27914915693567155" />
-        <entry key="app/src/main/res/layout/food_row.xml" value="0.15760869565217392" />
+        <entry key="app/src/main/res/layout/food_row.xml" value="0.19891204833984372" />
         <entry key="app/src/main/res/layout/list.xml" value="0.23143115942028986" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/ic_launcher.xml" value="0.1645" />
         <entry key="app/src/main/res/mipmap-anydpi-v26/useby_logo.xml" value="0.1665" />

@@ -21,7 +21,8 @@
         <activity
             android:name=".OpenListActivity"
             android:parentActivityName=".MainActivity"
-            android:exported="false" />
+            android:exported="false"
+        android:windowSoftInputMode="adjustPan"/>
         <activity
             android:name=".ItemDetailsActivity"
             android:exported="false" />
