@@ -8,8 +8,11 @@ import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import java.time.LocalDate;
+import java.time.Duration;
+import java.time.LocalDateTime;
 import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 
 @Entity
 public class Food {
@@ -83,14 +86,22 @@ public class Food {
 
     @RequiresApi(api = Build.VERSION_CODES.O)
     public int getDaysUntilExpired() {
-        LocalDate currentDate = LocalDate.now();
+        LocalDateTime currentDate = LocalDateTime.now();
 
         String dateFormat = "dd/MM/yyyy";
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(dateFormat);
-        String expirationString = getDate();
-        LocalDate expirationDate = LocalDate.parse(expirationString, dtf);
+        //DateTimeFormatter dtf = DateTimeFormatter.ofPattern(dateFormat);
 
-        return expirationDate.compareTo(currentDate);
+        DateTimeFormatter dtf = new DateTimeFormatterBuilder()
+                .appendPattern(dateFormat)
+                .parseDefaulting(ChronoField.HOUR_OF_DAY, 23)
+                .parseDefaulting(ChronoField.MINUTE_OF_HOUR, 59)
+                .parseDefaulting(ChronoField.SECOND_OF_MINUTE, 59)
+                .toFormatter();
+
+        String expirationString = getDate();
+        LocalDateTime expirationDate = LocalDateTime.parse(expirationString, dtf);
+
+        return (int) Duration.between(currentDate, expirationDate).toDays();
     }
 
 }
