@@ -89,7 +89,6 @@ public class Food {
         LocalDateTime currentDate = LocalDateTime.now();
 
         String dateFormat = "dd/MM/yyyy";
-        //DateTimeFormatter dtf = DateTimeFormatter.ofPattern(dateFormat);
 
         DateTimeFormatter dtf = new DateTimeFormatterBuilder()
                 .appendPattern(dateFormat)
