@@ -20,4 +20,11 @@
 
     <!-- number of dates before expiration date when status is eat now-->
     <string name="num_days_eat_now">3</string>
+
+    <string-array name="filter_array">
+        <item>All</item>
+        <item>Good</item>
+        <item>Eat now</item>
+        <item>Expired</item>
+    </string-array>
 </resources>
