@@ -26,6 +26,10 @@
             android:name=".ItemDetailsActivity"
             android:exported="false" />
         <activity
+            android:name=".ViewNotificationsActivity"
+            android:parentActivityName=".MainActivity"
+            android:exported="false" />
+        <activity
             android:name=".MainActivity"
             android:exported="true" >
             <intent-filter>

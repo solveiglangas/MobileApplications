@@ -1,14 +1,9 @@
 package com.example.use_by;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.google.android.material.textfield.TextInputLayout;
-
-import java.util.Date;
 @Entity
 public class Food {
 

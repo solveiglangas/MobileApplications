@@ -72,4 +72,11 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inflater.inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
+
+
+    public void notification(View view) {
+        Intent intent = new Intent(this, ViewNotificationsActivity.class);
+        startActivity(intent);
+    }
+
 }

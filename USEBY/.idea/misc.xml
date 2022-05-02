@@ -3,6 +3,14 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
+        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/drawable/ic_notifications.xml" value="0.114" />
+        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/activity_item_details.xml" value="0.1796875" />
+        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/activity_main.xml" value="0.1796875" />
+        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/activity_open_list.xml" value="0.1671875" />
+        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/activity_view_notifications.xml" value="0.1796875" />
+        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/food_row.xml" value="0.1796875" />
+        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/notification_row.xml" value="0.1" />
+        <entry key="..\:/Users/borab/AppData/Local/Android/Sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.1796875" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1665" />
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.2891128540039063" />
         <entry key="app/src/main/res/layout/activity_edit.xml" value="0.1" />
