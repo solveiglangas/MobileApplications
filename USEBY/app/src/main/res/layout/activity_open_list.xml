@@ -4,15 +4,16 @@
     xmlns:app="http://schemas.android.com/apk/res-auto"
     xmlns:tools="http://schemas.android.com/tools"
     android:layout_width="match_parent"
-    android:layout_height="match_parent"
-    tools:context=".OpenListActivity">
+    android:layout_height="wrap_content"
+    tools:context=".OpenListActivity"
+    >
 
     <androidx.appcompat.widget.SearchView
         android:id="@+id/foodListSearchView"
         android:layout_width="0dp"
         android:layout_height="wrap_content"
+        android:queryHint="@string/search_hint"
         android:iconifiedByDefault="false"
-        android:queryHint="Food name "
         app:layout_constraintBottom_toTopOf="@+id/button2"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"
@@ -34,7 +35,7 @@
         android:id="@+id/foodList"
         android:layout_width="408dp"
         android:layout_height="518dp"
-        android:layout_marginTop="80dp"
+        android:layout_marginTop="180dp"
         app:layout_constraintBottom_toBottomOf="parent"
         app:layout_constraintEnd_toEndOf="parent"
         app:layout_constraintHorizontal_bias="0.0"

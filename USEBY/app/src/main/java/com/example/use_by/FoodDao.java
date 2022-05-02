@@ -23,6 +23,7 @@ public interface FoodDao {
     @Query("SELECT * FROM Food WHERE id=:id")
     Food findById(long id);
 
+
     @Delete
     void delete(Food food);
 
@@ -33,6 +34,10 @@ public interface FoodDao {
 
     @Query("SELECT * FROM Food WHERE id IN (:foodIds)")
     List<Food> loadAllByIds(long[] foodIds);
+
+    @Query("SELECT * FROM Food WHERE name LIKE :name LIMIT 1")
+    Food findByName(String name);
+
 
     @Query("SELECT * FROM Food WHERE id IN (:foodIds)")
     List<Food> loadAllByIds(long[] foodIds);

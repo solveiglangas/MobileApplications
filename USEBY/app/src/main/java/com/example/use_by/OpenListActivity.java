@@ -7,8 +7,10 @@ import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.appcompat.widget.SearchView;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -69,8 +71,8 @@ public class OpenListActivity extends AppCompatActivity {
                 activityResultLauncher.launch(intent);
             }
         });*/
-        fillData();
         initializeSearch();
+        fillData();
     }
 
     @Override
@@ -126,17 +128,17 @@ public class OpenListActivity extends AppCompatActivity {
             }
             @Override
             public boolean onQueryTextChange(String s) {
-                ArrayList<String> searchedFoods = new ArrayList<>();
+                ArrayList<String> searchedFoods = new ArrayList<String>();
                 for (String food : foodNames) {
                     if (food.toLowerCase().contains(s.toLowerCase())) {
                         searchedFoods.add(food);
                     }
                 }
                 System.out.println(searchedFoods);
-                ArrayAdapter<String> searchAdapter = new ArrayAdapter(getApplicationContext(), 0, searchedFoods);
+                ArrayAdapter<String> searchAdapter = new ArrayAdapter(listView.getContext(),
+                        android.R.layout.simple_list_item_1, searchedFoods);
                 listView.setAdapter(searchAdapter);
                 return false;
-
             }
         });
     }
