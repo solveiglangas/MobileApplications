@@ -64,28 +64,19 @@ public class ItemDetailsActivity extends AppCompatActivity {
     @RequiresApi(api = Build.VERSION_CODES.O)
     public void setStatus(){
         TextView status = findViewById(R.id.item_details_status);
+        int daysToExpiration = item.getDaysUntilExpired();
+        int daysToEatNow = Integer.parseInt(getResources().getString(R.string.num_days_eat_now));
 
-        LocalDate currentDate = LocalDate.now();
-
-        String dateFormat = getResources().getString(R.string.date_format);
-        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(dateFormat);
-        String expirationString = item.getDate();
-        LocalDate expirationDate = LocalDate.parse(expirationString, dtf);
-
-        int days_to_expiration = expirationDate.compareTo(currentDate);
-        int days_to_eat_now = Integer.parseInt(getResources().getString(R.string.num_days_eat_now));
-
-        if (days_to_expiration < 0 ) {
+        if (daysToExpiration < 0 ) {
             status.setText(getResources().getString(R.string.status_expired));
             status.setTextColor(getColor(R.color.status_expired));
-        } else if (days_to_expiration <= days_to_eat_now) {
+        } else if (daysToExpiration <= daysToEatNow) {
             status.setText(getResources().getString(R.string.status_eat_now));
             status.setTextColor(getColor(R.color.status_eat_now));
         } else {
             status.setText(getResources().getString(R.string.status_good));
             status.setTextColor(getColor(R.color.status_good));;
         }
-        System.out.println(expirationDate.compareTo(currentDate));
     }
 
     public void openDeleteAlertDialog(View view){

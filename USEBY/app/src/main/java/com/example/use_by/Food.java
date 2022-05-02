@@ -1,14 +1,16 @@
 package com.example.use_by;
 
-import androidx.annotation.NonNull;
-import androidx.annotation.Nullable;
+
+import android.os.Build;
+
+import androidx.annotation.RequiresApi;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
 import androidx.room.PrimaryKey;
 
-import com.google.android.material.textfield.TextInputLayout;
+import java.time.LocalDate;
+import java.time.format.DateTimeFormatter;
 
-import java.util.Date;
 @Entity
 public class Food {
 
@@ -77,6 +79,18 @@ public class Food {
 
     public void setLocation(String location) {
         this.location = location;
+    }
+
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public int getDaysUntilExpired() {
+        LocalDate currentDate = LocalDate.now();
+
+        String dateFormat = "dd/MM/yyyy";
+        DateTimeFormatter dtf = DateTimeFormatter.ofPattern(dateFormat);
+        String expirationString = getDate();
+        LocalDate expirationDate = LocalDate.parse(expirationString, dtf);
+
+        return expirationDate.compareTo(currentDate);
     }
 
 }
