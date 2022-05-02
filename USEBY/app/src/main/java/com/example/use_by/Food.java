@@ -101,6 +101,10 @@ public class Food {
         String expirationString = getDate();
         LocalDateTime expirationDate = LocalDateTime.parse(expirationString, dtf);
 
+        if (expirationDate.compareTo(currentDate) < 0) {
+            return expirationDate.compareTo(currentDate);
+        }
+
         return (int) Duration.between(currentDate, expirationDate).toDays();
     }
 
