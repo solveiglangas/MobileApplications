@@ -4,18 +4,20 @@
     <string name="add">Add</string>
     <string name="quantity">Quantity</string>
     <string name="expiration_date">Expiration Date</string>
-    <string name="eg_25_01_2022">Eg. 25.01.2022</string>
-    <string name="pick_date">Pick date</string>
     <string name="food_name">Food</string>
+    <string name="date_format">dd/MM/yyyy</string>
+    <string name="search_hint">Search food</string>
+
+    <!-- Button names and labels -->
     <string name="cancel">Cancel</string>
     <string name="save">Save</string>
     <string name="edit">Edit</string>
-    <string name="date_format">dd/MM/yyyy</string>
+
+    <!-- statueses -->
     <string name="status_good">GOOD</string>
     <string name="status_eat_now">EAT NOW</string>
     <string name="status_expired">EXPIRED</string>
 
     <!-- number of dates before expiration date when status is eat now-->
     <string name="num_days_eat_now">3</string>
-    <string name="search_hint">Search food</string>
 </resources>

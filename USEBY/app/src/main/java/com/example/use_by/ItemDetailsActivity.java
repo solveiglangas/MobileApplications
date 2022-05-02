@@ -38,7 +38,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
             TextView expirationDate = findViewById(R.id.item_details_expiration_date);
 
             title.setText(item.getName());
-            quantity.setText("Quantity: " + String.valueOf(item.getQuantity()));
+            quantity.setText("Quantity: " + item.getQuantity());
             expirationDate.setText("Expiration date: "  + item.getDate());
         }
     }
@@ -47,7 +47,6 @@ public class ItemDetailsActivity extends AppCompatActivity {
     @Override
     protected void onRestart() {
         super.onRestart();
-
         item = db.foodDao().findById(itemId);
         fillItemDetails();
         setStatus();
@@ -75,7 +74,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
             status.setTextColor(getColor(R.color.status_eat_now));
         } else {
             status.setText(getResources().getString(R.string.status_good));
-            status.setTextColor(getColor(R.color.status_good));;
+            status.setTextColor(getColor(R.color.status_good));
         }
     }
 
