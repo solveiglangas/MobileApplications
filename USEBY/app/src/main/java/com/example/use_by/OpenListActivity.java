@@ -38,7 +38,6 @@ public class OpenListActivity extends AppCompatActivity {
         if(extras!=null)
         {
             int value = extras.getInt("key");
-            System.out.println(value);
             if(value == 1){
                 location = "refrigerator";
             }
@@ -82,7 +81,7 @@ public class OpenListActivity extends AppCompatActivity {
         listView.setOnItemClickListener(new AdapterView.OnItemClickListener() {
             @Override
             public void onItemClick(AdapterView<?> parent, View view, int position, long id){
-                openItem(view, position);
+                openItem(view, id);
             }
         });
     }
@@ -93,9 +92,8 @@ public class OpenListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
-    public void openItem(View view, int position) {
+    public void openItem(View view, long itemId) {
         Intent intent = new Intent(this, ItemDetailsActivity.class);
-        long itemId = foodIds.get(position);
         intent.putExtra("id", itemId);
         startActivity(intent);
     }
@@ -109,15 +107,19 @@ public class OpenListActivity extends AppCompatActivity {
             }
             @Override
             public boolean onQueryTextChange(String s) {
-                ArrayList<String> searchedFoods = new ArrayList<String>();
-                for (String food : foodNames) {
-                    if (food.toLowerCase().contains(s.toLowerCase())) {
-                        searchedFoods.add(food);
+
+                List<Food> searchedFoods = new ArrayList<Food>();
+
+                for (Long id : foodIds) {
+                    int index = foodIds.indexOf(id);
+                    String foodName = foodNames.get(index);
+
+                    if (foodName.toLowerCase().contains(s.toLowerCase())) {
+                        searchedFoods.add(db.foodDao().findById(id));
                     }
                 }
                 System.out.println(searchedFoods);
-                ArrayAdapter<String> searchAdapter = new ArrayAdapter(listView.getContext(),
-                        android.R.layout.simple_list_item_1, searchedFoods);
+                CustomListAdapter searchAdapter = new CustomListAdapter(listView.getContext(), searchedFoods);
                 listView.setAdapter(searchAdapter);
                 return false;
             }
