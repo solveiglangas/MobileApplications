@@ -5,10 +5,13 @@ import androidx.activity.result.ActivityResultCallback;
 import androidx.activity.result.ActivityResultLauncher;
 import androidx.activity.result.contract.ActivityResultContracts;
 import androidx.appcompat.app.AppCompatActivity;
+import androidx.appcompat.widget.SearchView;
 
+import android.app.SearchManager;
 import android.content.Intent;
 import android.os.Bundle;
 import android.view.LayoutInflater;
+import android.view.Menu;
 import android.view.View;
 import android.widget.AdapterView;
 import android.widget.ArrayAdapter;
@@ -60,6 +63,8 @@ public class OpenListActivity extends AppCompatActivity {
 
         db = AppDatabase.getInstance(getApplicationContext());
         listView = findViewById(R.id.foodList);
+
+        initializeSearch();
         fillData();
     }
 
@@ -106,5 +111,28 @@ public class OpenListActivity extends AppCompatActivity {
         startActivity(intent);
     }
 
+    private void initializeSearch() {
+        SearchView searchView = (SearchView) findViewById(R.id.foodListSearchView);
+        searchView.setOnQueryTextListener(new SearchView.OnQueryTextListener() {
+            @Override
+            public boolean onQueryTextSubmit(String s) {
+                return false;
+            }
+            @Override
+            public boolean onQueryTextChange(String s) {
+                ArrayList<String> searchedFoods = new ArrayList<String>();
+                for (String food : foodNames) {
+                    if (food.toLowerCase().contains(s.toLowerCase())) {
+                        searchedFoods.add(food);
+                    }
+                }
+                System.out.println(searchedFoods);
+                ArrayAdapter<String> searchAdapter = new ArrayAdapter(listView.getContext(),
+                        android.R.layout.simple_list_item_1, searchedFoods);
+                listView.setAdapter(searchAdapter);
+                return false;
+            }
+        });
+    }
 
 }
