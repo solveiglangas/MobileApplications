@@ -25,7 +25,7 @@ public abstract class AppDatabase extends RoomDatabase {
     }
     public static AppDatabase create(Context context){
         return Room.databaseBuilder(context, AppDatabase.class, DB_NAME)
-                .fallbackToDestructiveMigration()
+//                .fallbackToDestructiveMigration()
                 .createFromAsset(PRELOADED_DATABASE_FILE)
                 .allowMainThreadQueries()
                 .build();

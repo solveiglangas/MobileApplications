@@ -1,19 +1,30 @@
 package com.example.use_by;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class AddItemActivity  extends AppCompatActivity implements View.OnClickListener{
@@ -87,7 +98,8 @@ public class AddItemActivity  extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    public void addFood(View view) {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void addFood(View view) throws ParseException {
         input1 = findViewById(R.id.input1);
         input2 = findViewById(R.id.input2);
         input3 = findViewById(R.id.input3);
@@ -103,6 +115,50 @@ public class AddItemActivity  extends AppCompatActivity implements View.OnClickL
         System.out.println(newFood.getQuantity()+" quantity");
         System.out.println(newFood.getId()+" id");
         db.foodDao().insert(newFood);
+
+        // -------------------------------------------------------------
+
+        String foodDate = newFood.getDate();
+        Food food = db.foodDao().getFoodByName(newFood.getName());
+        Long notificationId = food.getId();
+        System.out.println(notificationId);
+        // Intent
+        Intent intentNotification = new Intent(AddItemActivity.this, AlarmReceiver.class);
+        intentNotification.putExtra("notificationId", notificationId);
+        intentNotification.putExtra("message", newFood.name + " expires in " + foodDate);
+
+        // PendingIntent
+        PendingIntent pendingIntent = PendingIntent.getBroadcast(
+                AddItemActivity.this, 0, intentNotification, PendingIntent.FLAG_CANCEL_CURRENT
+        );
+
+        // AlarmManager
+        AlarmManager alarmManager = (AlarmManager)getSystemService(ALARM_SERVICE);
+
+        SimpleDateFormat sdf = new SimpleDateFormat("dd/MM/yyyy");
+        Date parse = sdf.parse(newFood.getDate());
+        Calendar c = Calendar.getInstance();
+        c.setTime(parse);
+        System.out.println(c.get(Calendar.YEAR));
+        System.out.println(c.get(Calendar.MONTH) +1);
+        System.out.println(c.get(Calendar.DAY_OF_MONTH));
+
+
+        // Create time.
+        Calendar startTime = Calendar.getInstance();
+        startTime.set(Calendar.YEAR,  c.get(Calendar.YEAR));
+        startTime.set(Calendar.MONTH, c.get(Calendar.MONTH) + 1);
+        startTime.set(Calendar.DAY_OF_MONTH, c.get(Calendar.DAY_OF_MONTH));
+        startTime.set(Calendar.HOUR_OF_DAY, 1);
+        startTime.set(Calendar.MINUTE, 46);
+        startTime.set(Calendar.SECOND, 0);
+
+        long alarmStartTime = startTime.getTimeInMillis();
+
+        // Set Alarm
+        alarmManager.set(AlarmManager.RTC_WAKEUP, alarmStartTime, pendingIntent);
+
+        // -------------------------------------------------------------
 
         Intent intent = new Intent(this, OpenListActivity.class);
         intent.putExtra("list",listLocation);
