@@ -65,14 +65,8 @@ public class AddItemActivity  extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    // TODO: go back to former activity and not make new intent (since the
-    //  back button will not bring you from list to front page, but from list
-    //  back to add.
+
     public void cancel(View view) {
-        Intent intent = new Intent(this, OpenListActivity.class);
-        intent.putExtra("list",listLocation);
-        intent.putExtra("key",itemId);
-        startActivity(intent);
         finish();
     }
 
@@ -116,13 +110,7 @@ public class AddItemActivity  extends AppCompatActivity implements View.OnClickL
         System.out.println(newFood.getId()+" id");
         db.foodDao().insert(newFood);
 
-        // -------------------------------------------------------------
+        finish();
 
-        // -------------------------------------------------------------
-
-        Intent intent = new Intent(this, OpenListActivity.class);
-        intent.putExtra("list",listLocation);
-        intent.putExtra("key",itemId);
-        startActivity(intent);
     }
 }
