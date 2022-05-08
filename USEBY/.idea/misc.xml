@@ -3,7 +3,9 @@
   <component name="DesignSurface">
     <option name="filePathToZoomLevelMap">
       <map>
-        <entry key="../../../../../Library/Android/sdk/platforms/android-32/data/res/layout/simple_list_item_1.xml" value="0.21041666666666667" />
+        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/drawable/ic_baseline_notifications_24.xml" value="0.1215" />
+        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/drawable/ic_notifications.xml" value="0.1215" />
+        <entry key="..\:/Users/borab/AndroidStudioProjects/MobileApplications/USEBY/app/src/main/res/layout/food_row.xml" value="0.11041666666666666" />
         <entry key="app/src/main/res/drawable/ic_launcher_background.xml" value="0.1665" />
         <entry key="app/src/main/res/layout/activity_add_item.xml" value="0.2891128540039063" />
         <entry key="app/src/main/res/layout/activity_edit.xml" value="0.1" />

@@ -1,19 +1,30 @@
 package com.example.use_by;
 
+import androidx.annotation.RequiresApi;
 import androidx.appcompat.app.AppCompatActivity;
 import androidx.fragment.app.DialogFragment;
 
 import android.annotation.SuppressLint;
+import android.app.AlarmManager;
 import android.app.DatePickerDialog;
+import android.app.PendingIntent;
 import android.content.Intent;
+import android.os.Build;
 import android.os.Bundle;
 import android.view.View;
 import android.widget.ArrayAdapter;
 import android.widget.DatePicker;
 import android.widget.EditText;
 
+import java.text.ParseException;
+import java.text.SimpleDateFormat;
+import java.time.LocalDateTime;
+import java.time.format.DateTimeFormatter;
+import java.time.format.DateTimeFormatterBuilder;
+import java.time.temporal.ChronoField;
 import java.util.ArrayList;
 import java.util.Calendar;
+import java.util.Date;
 import java.util.List;
 
 public class AddItemActivity  extends AppCompatActivity implements View.OnClickListener{
@@ -54,14 +65,9 @@ public class AddItemActivity  extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    // TODO: go back to former activity and not make new intent (since the
-    //  back button will not bring you from list to front page, but from list
-    //  back to add.
+
     public void cancel(View view) {
-        Intent intent = new Intent(this, OpenListActivity.class);
-        intent.putExtra("list",listLocation);
-        intent.putExtra("key",itemId);
-        startActivity(intent);
+        finish();
     }
 
     @Override
@@ -86,7 +92,8 @@ public class AddItemActivity  extends AppCompatActivity implements View.OnClickL
         }
     }
 
-    public void addFood(View view) {
+    @RequiresApi(api = Build.VERSION_CODES.O)
+    public void addFood(View view) throws ParseException {
         input1 = findViewById(R.id.input1);
         input2 = findViewById(R.id.input2);
         input3 = findViewById(R.id.input3);
@@ -104,5 +111,6 @@ public class AddItemActivity  extends AppCompatActivity implements View.OnClickL
         db.foodDao().insert(newFood);
 
         finish();
+
     }
 }
