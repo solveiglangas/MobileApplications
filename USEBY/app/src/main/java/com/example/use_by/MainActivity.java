@@ -36,14 +36,9 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         freezer.setOnClickListener(this);
         pantry.setOnClickListener(this);
 
-
-        NotificationChannel();
-
-
-
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 2);
-        calendar.set(Calendar.MINUTE, 39);
+        calendar.set(Calendar.MINUTE, 46);
         calendar.set(Calendar.SECOND, 30);
 
         if (Calendar.getInstance().after(calendar)) {
@@ -58,7 +53,6 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.M) {
             alarmManager.setExactAndAllowWhileIdle(AlarmManager.RTC_WAKEUP,calendar.getTimeInMillis(),pendingIntent);
         }
-
     }
 
     @Override
@@ -103,28 +97,4 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
         inflater.inflate(R.menu.menu_main, menu);
         return super.onCreateOptionsMenu(menu);
     }
-
-
-    public void notification(View view) {
-        Intent intent = new Intent(this, ViewNotificationsActivity.class);
-        startActivity(intent);
-    }
-
-    private void NotificationChannel() {
-
-        if (Build.VERSION.SDK_INT >= Build.VERSION_CODES.O) {
-            CharSequence name = "PASTICCINO";
-            String description = "PASTICCINO`S CHANNEL";
-            int importance = NotificationManager.IMPORTANCE_DEFAULT;
-            NotificationChannel channel = new NotificationChannel("Notification", name, importance);
-            channel.setDescription(description);
-
-
-            NotificationManager notificationManager = getSystemService(NotificationManager.class);
-            notificationManager.createNotificationChannel(channel);
-
-
-        }
-    }
-
 }
