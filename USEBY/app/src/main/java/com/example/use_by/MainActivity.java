@@ -38,7 +38,7 @@ public class MainActivity extends AppCompatActivity implements View.OnClickListe
 
         Calendar calendar = Calendar.getInstance();
         calendar.set(Calendar.HOUR_OF_DAY, 2);
-        calendar.set(Calendar.MINUTE, 46);
+        calendar.set(Calendar.MINUTE, 53);
         calendar.set(Calendar.SECOND, 30);
 
         if (Calendar.getInstance().after(calendar)) {
