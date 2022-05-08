@@ -103,9 +103,6 @@ public class AddItemActivity  extends AppCompatActivity implements View.OnClickL
         System.out.println(newFood.getId()+" id");
         db.foodDao().insert(newFood);
 
-        Intent intent = new Intent(this, OpenListActivity.class);
-        intent.putExtra("list",listLocation);
-        intent.putExtra("key",itemId);
-        startActivity(intent);
+        finish();
     }
 }
