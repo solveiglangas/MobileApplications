@@ -81,7 +81,7 @@ public class ItemDetailsActivity extends AppCompatActivity {
     public void openDeleteAlertDialog(View view){
         AlertDialog.Builder alertDialogBuilder = new AlertDialog.Builder(this);
         alertDialogBuilder.setTitle("Delete "+item.getName()+"?");
-        alertDialogBuilder.setMessage("Deleting this item will permanently remove it for your list.");
+        alertDialogBuilder.setMessage("Deleting this item will permanently remove it from your list.");
         alertDialogBuilder.setPositiveButton("Delete",
                 new DialogInterface.OnClickListener() {
                     @Override

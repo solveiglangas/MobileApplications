@@ -77,7 +77,7 @@ public class EditItemActivity extends AppCompatActivity implements View.OnClickL
         item.setName(name.getText().toString());
         item.setDate(date.getText().toString());
         item.setQuantity(Integer.parseInt(quantity.getText().toString()));
-        // TODO: Change list?
+
 
         db.foodDao().update(item);
         finish();

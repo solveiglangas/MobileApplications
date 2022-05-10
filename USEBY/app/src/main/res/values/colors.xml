@@ -23,4 +23,8 @@
 
     <!-- DIALOG ALERT FOR DELETE COLORS-->
     <color name="secondary_text">#8E8E8E</color>
+
+    <!-- DROPDOWN -->
+    <color name="dropdown_primary">#8E8E8E</color>
+
 </resources>
