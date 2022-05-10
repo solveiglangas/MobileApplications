@@ -55,9 +55,16 @@ public class MyService extends IntentService {
         if (foods.size() > 0){
             for (Food food : foods) {
                 int daysToEatNow = Integer.parseInt(getResources().getString(R.string.num_days_eat_now));
-                if(food.getDaysUntilExpired() <= daysToEatNow) {
+                if(food.getDaysUntilExpired() <= daysToEatNow && food.getDaysUntilExpired() >= 0) {
                     builder.setContentTitle("Eat now");
                     builder.setContentText(food.getName()+ " in " + food.getLocation() + " is expiring soon");
+                    notificationId += 1;
+                    notificationManager.notify(notificationId, builder.build());
+
+                }
+                if(food.getDaysUntilExpired() < 0) {
+                    builder.setContentTitle("Expired");
+                    builder.setContentText(food.getName()+ " in " + food.getLocation() + " has expired");
                     notificationId += 1;
                     notificationManager.notify(notificationId, builder.build());
 

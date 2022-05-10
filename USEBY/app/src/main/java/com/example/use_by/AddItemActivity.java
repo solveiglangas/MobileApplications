@@ -103,11 +103,6 @@ public class AddItemActivity  extends AppCompatActivity implements View.OnClickL
         newFood.setDate(input2.getText().toString());
         newFood.setQuantity(Integer.parseInt(input3.getText().toString()));
         newFood.setLocation(listLocation);
-        System.out.println(newFood.getLocation()+ " location");
-        System.out.println(newFood.getName() + " name");
-        System.out.println(newFood.getDate()+ " date");
-        System.out.println(newFood.getQuantity()+" quantity");
-        System.out.println(newFood.getId()+" id");
         db.foodDao().insert(newFood);
 
         finish();
