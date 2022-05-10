@@ -5,6 +5,7 @@ import android.os.Build;
 import androidx.annotation.RequiresApi;
 import androidx.room.ColumnInfo;
 import androidx.room.Entity;
+import androidx.room.Ignore;
 import androidx.room.PrimaryKey;
 
 import java.time.Duration;
@@ -31,9 +32,8 @@ public class Food {
     @ColumnInfo(name="location")
     public String location;
 
-    public Food(){
-
-    }
+    @Ignore
+    public Food(){ }
 
     public Food(long id, String name, int quantity, String date, String location) {
         this.id = id;
